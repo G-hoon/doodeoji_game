@@ -1,0 +1,23 @@
+{
+  "name": "doodeoji_game",
+  "version": "1.0.0",
+  "description": "it is the web game which catch mole by hammer and it is developed by javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/G-hoon/doodeoji_game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/G-hoon/doodeoji_game/issues"
+  },
+  "homepage": "https://github.com/G-hoon/doodeoji_game#readme",
+  "devDependencies": {
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2"
+  }
+}
