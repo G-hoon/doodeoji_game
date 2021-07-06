@@ -8,7 +8,7 @@ module.exports = {
     index: './source/index.ts',
     main: './source/main.ts',
     play: './source/play.ts',
-    router: './source/router.js',
+    router: './source/router.ts',
   },
   // for importing something in ts or js file
   resolve: {
