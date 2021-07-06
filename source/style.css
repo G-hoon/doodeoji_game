@@ -1,6 +1,6 @@
 /* For style code of this app */
 body {
-  background:#3498db;
+    background:#3498db;
 }
 
 input {
@@ -9,8 +9,7 @@ input {
     padding: 1em;
     border: 0;
     font-size: 1rem;
-    margin-bottom: 10px;
-}
+} 
 
 .btn{
     display: block;
@@ -44,6 +43,11 @@ input {
     text-align: center;
 }
 
-.container span {
+.container span, div {
     margin-left: 30px;
+}
+
+.container .errorPanel {
+    font-size: 0.75rem;
+    color: red;
 }

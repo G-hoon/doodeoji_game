@@ -1,9 +1,12 @@
 <form id="form">
     <div class="container">
         <h1>두더지 잡기</h1>
-        <span>행:</span> <input type="number" min="2" max="6" placeholder="행" id="row" size="5" required/><br>
-        <span>열:</span> <input type="number" min="2" max="6" placeholder="열" id="cell" size="5" required /><br>
-        <span>두더지:</span> <input type="number" min="1" placeholder="두더지" id="mole" size="5" required/><br>
-        <button class="btn" route="/play">생성</button>
+        <span class="label">행:</span><input type="number" min="2" max="6" placeholder="행" id="row" size="5" required/><br>
+        <span id="rowError" class="errorPanel"></span><br>
+        <span class="label">열:</span> <input type="number" min="2" max="6" placeholder="열" id="cell" size="5" required /><br>
+        <span id="cellError" class="errorPanel"></span><br>
+        <span class="label">두더지:</span> <input type="number" min="1" max="18" placeholder="두더지" id="mole" size="5" required/><br>
+        <div id="moleError" class="errorPanel"></div><br><br>
+        <button class="btn" route="/play">시작</button>
     </div>
 </form>

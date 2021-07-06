@@ -14,9 +14,10 @@ window.onload = () => {
   const historyLinker = document.querySelectorAll('.btn');
   historyLinker.forEach((element) => {
     element.addEventListener('click', (event) => {
+      event.preventDefault();
       const getEvent = event.currentTarget as HTMLInputElement;
-      const pathName = getEvent.getAttribute('route');
-      const form = document.querySelector('form');
+      const pathName = getEvent.getAttribute('route') as string;
+      const form = document.querySelector('#form') as HTMLFormElement;
       if (pathName === '/play') {
         if (!validateMoleCount(form)) {
           return;
