@@ -8,6 +8,27 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
   ],
   rules: {
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
     'no-console': 'off',
+  },
+  globals: {
+    window: true,
+    document: true,
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.ts'],
+      },
+    },
   },
 };
