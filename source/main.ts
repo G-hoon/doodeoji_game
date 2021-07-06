@@ -74,7 +74,7 @@ const validateMoleCount = (form): boolean => {
     valid = false;
     moleErrorPanel.textContent = validationErrorMessage.mole.max;
   } else if (row.value.length !== 0 && cell.value.length !== 0
-             && validMoleCount < Number(mole.value)) {
+             && validMoleCount <= Number(mole.value)) {
     valid = false;
     moleErrorPanel.innerText = validationErrorMessage.mole.rangeViloation(validMoleCount);
   }
