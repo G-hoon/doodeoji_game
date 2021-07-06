@@ -8,4 +8,6 @@ const formData = (form) => {
   return values;
 };
 
-export default formData;
+module.exports = {
+  formData,
+};

@@ -1,7 +1,6 @@
-import formData from './main';
-
 require('./style.css');
 
+const { formData, validateMoleCount } = require('./main');
 const { buildTable } = require('./play');
 const { initialRoutes, historyRouterPush } = require('./router');
 
@@ -26,3 +25,7 @@ window.onload = () => {
     });
   });
 };
+
+// For global scope issue
+// https://stackoverflow.com/questions/40900791/cannot-redeclare-block-scoped-variable-in-unrelated-files
+export {};
