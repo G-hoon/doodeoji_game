@@ -1,15 +1,18 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   entry: {
     index: './source/index.ts',
+    main: './source/main.ts',
+    play: './source/play.ts',
+    router: './source/router.js',
   },
   // for importing something in ts or js file
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js', '.css', 'png'],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -42,6 +45,13 @@ module.exports = {
             // 원본 파일 이미지로 dist 에 생성
             name: '[name].[ext]?[hash]',
           },
+        }],
+      },
+      {
+        // For loading image file
+        test: /\.html$/,
+        use: [{
+          loader: 'html-loader',
         }],
       },
     ],
