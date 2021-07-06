@@ -17,10 +17,12 @@ window.onload = () => {
       const getEvent = event.currentTarget as HTMLInputElement;
       const pathName = getEvent.getAttribute('route');
       const form = document.querySelector('form');
-      historyRouterPush(contentDiv, pathName);
       if (pathName === '/play') {
-        const gameScreen = document.querySelector('#game_screen');
-        buildTable(formData(form), gameScreen);
+        if (!validateMoleCount(form)) {
+          return;
+        }
+        historyRouterPush(contentDiv, pathName);
+        buildTable(formData(form));
       }
     });
   });
