@@ -40,7 +40,7 @@ const validateMoleCount = (form): boolean => {
   moleErrorPanel.textContent = '';
   rowErrorPanel.textContent = '';
   cellErrorPanel.textContent = '';
-  const validMoleCount = Math.floor(Number(row.value * cell.value) / 2);
+  const validMoleCount = Math.round(Number(row.value * cell.value) / 2);
 
   if (row.value.length === 0) {
     valid = false;
