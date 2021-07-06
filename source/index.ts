@@ -10,7 +10,7 @@ const contentDiv = document.querySelector('#root');
 // Browser History
 initialRoutes(contentDiv);
 
-window.onload = () => {
+function routing() {
   const historyLinker = document.querySelectorAll('.btn');
   historyLinker.forEach((element) => {
     element.addEventListener('click', (event) => {
@@ -24,9 +24,18 @@ window.onload = () => {
         }
         historyRouterPush(contentDiv, pathName);
         buildTable(formData(form));
+        routing();
+      }
+      if (pathName === '/main') {
+        historyRouterPush(contentDiv, pathName);
+        routing();
       }
     });
   });
+}
+
+window.onload = () => {
+  routing();
 };
 
 // For global scope issue
