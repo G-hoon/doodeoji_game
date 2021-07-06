@@ -1,10 +1,28 @@
-// entry file
-import './style.css';
+import formData from './main';
 
-function hello() {
-  console.log('world!');
-}
+require('./style.css');
 
-hello();
+const { buildTable } = require('./play');
+const { initialRoutes, historyRouterPush } = require('./router');
 
-console.log('test123');
+// app division
+const contentDiv = document.querySelector('#root');
+
+// Browser History
+initialRoutes(contentDiv);
+
+window.onload = () => {
+  const historyLinker = document.querySelectorAll('.btn');
+  historyLinker.forEach((element) => {
+    element.addEventListener('click', (event) => {
+      const getEvent = event.currentTarget as HTMLInputElement;
+      const pathName = getEvent.getAttribute('route');
+      const form = document.querySelector('form');
+      historyRouterPush(contentDiv, pathName);
+      if (pathName === '/play') {
+        const gameScreen = document.querySelector('#game_screen');
+        buildTable(formData(form), gameScreen);
+      }
+    });
+  });
+};
