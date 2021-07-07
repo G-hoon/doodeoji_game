@@ -1,7 +1,7 @@
 require('./style.css');
 
 const { formData, validateMoleCount } = require('./main');
-const { buildTable, initialize } = require('./play');
+const { buildTable } = require('./play');
 const { initialRoutes, historyRouterPush } = require('./router');
 
 // app division
@@ -24,7 +24,6 @@ function routing() {
         }
         historyRouterPush(contentDiv, pathName);
         buildTable(formData(form));
-        initialize();
         routing();
       }
       if (pathName === '/main') {
