@@ -7,7 +7,7 @@ it is the web game which catch mole by hammer and it is developed by javascript
   - [Authors](#authors)
   - [ToDo or Issues](#todo-or-issues)
 
-## About RepositoryTemplate
+## Purpose of this project
 This project's purpose is to create a make web game based on vanilla javascript  
 
 ## Game Overview
