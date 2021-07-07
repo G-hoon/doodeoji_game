@@ -1,15 +1,25 @@
-<div>
-  <span id="timer">0</span>초&nbsp;
-  <span id="score">0</span>점
-</div>
-<div id="game_screen">
-</div>
-<div id="init">
-  <button class="btn" route="/main">처음 화면으로 돌아가기</button>
-  <button id="play_game" class="btn">시작 하기</button>
-</div>
-<div id="playing">
-  <button id="pause_game" class="btn">잠시 멈춤</button>
-  <button id="resume_game" class="btn">재개 하기</button>
-  <button id="end_game" class="btn">그만하기</button>
+<div class="game_container">
+  <div id="info_screen" class="top">
+    <span id="timer">0</span>초&nbsp;
+    <span id="score">0</span>점
+  </div>
+  <div id="game_screen">
+  </div>
+  <div id="result_screen" class="result_area">
+    최종 점수<br>
+    <h1><span id="result_score_screen"></span>점</h1>
+  </div>
+  <div id="init" class="init_button_area">
+    <button class="btn" route="/main">처음 화면으로 돌아가기</button>
+    <button id="play_game" class="btn">시작 하기</button>
+  </div>
+  <div id="playing" class="playing_button_area">
+    <button id="pause_game" class="btn">잠시 멈춤</button>
+    <button id="resume_game" class="btn">재개 하기</button>
+    <button id="end_game" class="btn">그만하기</button>
+  </div>
+  <div id="result" class="result_button_area">
+    <button class="btn" route="/main">처음 화면으로 돌아가기</button>
+    <button id="play_game_again" class="btn">다시 하기</button>
+  </div>
 </div>
