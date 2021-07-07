@@ -28,7 +28,6 @@ input {
 
 .container {
     background:white;
-    width:300px;
     border-radius:6px;
     border: #2980b9 4px solid;
     position: absolute;
@@ -39,15 +38,20 @@ input {
     transform: translateX(-50%) translateY(-50%);
 }
 
+.container .inputForm {
+    width: 300px;
+}
+
 .container h1 {
     text-align: center;
 }
 
-.container span, div {
+.container span {
     margin-left: 30px;
 }
 
 .container .errorPanel {
+    margin-left: 30px;
     font-size: 0.75rem;
     color: red;
 }
