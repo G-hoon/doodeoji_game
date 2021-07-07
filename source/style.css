@@ -63,7 +63,7 @@ input {
     background: 'yellow'; overflow: hidden;
 }
 .mole {
-    width: 200px; height: 200px; bottom: 0; position: absolute; transition: bottom 1s;
+    width: 100%; height: 100%; bottom: 0; position: absolute; transition: bottom 1s;
 }
 .mole {
     background: url(images/mole.png) center center no-repeat;
@@ -78,15 +78,15 @@ input {
 }
 
 .hole {
-    width: 200px; height: 150px; position: absolute; bottom: 0;
+    width: 200px; height: 182px; position: absolute; bottom: 0;
     background: url(images/hole.png) center center no-repeat;
-    background-size: 200px 150px;
+    background-size: 200px 182px;
 }
 
 .hole_front {
-    width: 200px; height: 150px; position: absolute; bottom: 0;
+    width: 200px; height: 70px; position: absolute; bottom: 0;
     background: url(images/hole_front.png) center center no-repeat;
-    background-size: 200px 150px;
+    background-size: 200px 70px;
 }
   
 
