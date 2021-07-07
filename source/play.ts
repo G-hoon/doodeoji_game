@@ -32,15 +32,35 @@ function switchMole(status: 'show' | 'hide', cell) {
   }
 }
 
-function switchDisplay(status: 'init' | 'playing') {
-  const playingDiv = document.querySelector('#playing') as HTMLDivElement;
-  const initDiv = document.querySelector('#init') as HTMLDivElement;
+function switchDisplay(status: 'init' | 'playing' | 'result') {
+  const playingButtonsDiv = document.querySelector('#playing') as HTMLDivElement;
+  const initButtonsDiv = document.querySelector('#init') as HTMLDivElement;
+  const resultButtonsDiv = document.querySelector('#result') as HTMLDivElement;
+  const timeAndScoreScreenDiv = document.querySelector('#info_screen') as HTMLDivElement;
+  const gameScreenDiv = document.querySelector('#game_screen') as HTMLDivElement;
+  const resultScreenDiv = document.querySelector('#result_screen') as HTMLDivElement;
+
   if (status === 'init') {
-    playingDiv.style.display = 'none';
-    initDiv.style.display = 'block';
+    playingButtonsDiv.style.display = 'none';
+    initButtonsDiv.style.display = 'block';
+    resultButtonsDiv.style.display = 'none';
+    gameScreenDiv.style.display = 'block';
+    resultScreenDiv.style.display = 'none';
+    timeAndScoreScreenDiv.style.display = 'block';
   } else if (status === 'playing') {
-    playingDiv.style.display = 'block';
-    initDiv.style.display = 'none';
+    playingButtonsDiv.style.display = 'block';
+    initButtonsDiv.style.display = 'none';
+    resultButtonsDiv.style.display = 'none';
+    gameScreenDiv.style.display = 'block';
+    resultScreenDiv.style.display = 'none';
+    timeAndScoreScreenDiv.style.display = 'block';
+  } else if (status === 'result') {
+    playingButtonsDiv.style.display = 'none';
+    initButtonsDiv.style.display = 'none';
+    resultButtonsDiv.style.display = 'block';
+    gameScreenDiv.style.display = 'none';
+    resultScreenDiv.style.display = 'block';
+    timeAndScoreScreenDiv.style.display = 'none';
   }
 }
 
@@ -85,7 +105,7 @@ function generateRandomMoles(cells) {
 
 function timerStart() {
   const timer = document.querySelector('#timer') as HTMLSpanElement;
-  time = 60;
+  time = 10;
   timerId = setInterval(() => {
     if (!pausedGame) {
       time = (time * 10 - 1) / 10;
@@ -96,27 +116,38 @@ function timerStart() {
       clearInterval(tickId);
       setTimeout(() => {
         switchDisplay('init');
+        exportResult();
       }, 50);
     }
   }, 100);
 }
 
-function initialize() {
+function initInfo() {
+  const timerDiv = document.querySelector('#timer') as HTMLSpanElement;
+  const scoresDiv = document.querySelector('#score') as HTMLSpanElement;
+  time = 0;
+  score = 0;
+  timerDiv.textContent = time.toString();
+  scoresDiv.textContent = score.toString();
+}
+
+function initialize(firstInitalize: boolean = false) {
   const cells = document.querySelectorAll('.cell');
-  const timer = document.querySelector('#timer') as HTMLSpanElement;
   const stopButton = document.querySelector('#end_game') as HTMLButtonElement;
   const playButton = document.querySelector('#play_game') as HTMLButtonElement;
+  const playAgainButton = document.querySelector('#play_game_again') as HTMLButtonElement;
   const pauseButton = document.querySelector('#pause_game') as HTMLButtonElement;
   const resumeButton = document.querySelector('#resume_game') as HTMLButtonElement;
 
-  switchDisplay('init');
+  if (firstInitalize) {
+    switchDisplay('init');
+  }
 
   stopButton.onclick = () => {
     clearInterval(timerId);
     clearInterval(tickId);
-    time = 0;
     switchDisplay('init');
-    timer.textContent = time.toString();
+    initInfo();
   };
   playButton.onclick = () => {
     timerStart();
@@ -125,6 +156,12 @@ function initialize() {
     catchMole(cells);
     resumeButton.style.display = 'none';
     pauseButton.style.display = 'block';
+  };
+  playAgainButton.onclick = () => {
+    clearInterval(timerId);
+    clearInterval(tickId);
+    switchDisplay('init');
+    initInfo();
   };
   pauseButton.onclick = () => {
     pausedGame = true;
@@ -136,6 +173,13 @@ function initialize() {
     resumeButton.style.display = 'none';
     pauseButton.style.display = 'block';
   };
+}
+
+function exportResult() {
+  switchDisplay('result');
+  const rsultScoreScreen = document.querySelector('#result_score_screen') as HTMLSpanElement;
+  rsultScoreScreen.textContent = score.toString();
+  initialize();
 }
 
 function buildTable(data: any) {
@@ -154,7 +198,7 @@ function buildTable(data: any) {
     contentDiv.appendChild(row);
   }
 
-  initialize();
+  initialize(true);
   moles = data.mole;
 }
 
