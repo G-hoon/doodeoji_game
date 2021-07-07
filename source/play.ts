@@ -1,5 +1,6 @@
 import './mole';
 
+let score = 0;
 let time = 60;
 let timerId;
 let tickId;
@@ -43,9 +44,27 @@ function switchDisplay(status: 'init' | 'playing') {
   }
 }
 
-function generateRandomMoles() {
-  const cells = document.querySelectorAll('.cell');
+function catchMole(cells) {
+  const scoreDiv = document.querySelector('#score') as HTMLSpanElement;
 
+  cells.forEach((cell, index) => {
+    cell.querySelector('.mole').addEventListener('click', (event) => {
+      if (!event.target.classList.contains('dead')) {
+        score += 1;
+        scoreDiv.textContent = score.toString();
+      }
+      event.target.classList.add('dead');
+      event.target.classList.add('hidden');
+      clearTimeout(holes[index]); // 기존 내려가는 타이머 제거
+      setTimeout(() => {
+        holes[index] = 0;
+        event.target.classList.remove('dead');
+      }, 1000);
+    });
+  });
+}
+
+function generateRandomMoles(cells) {
   tickId = setInterval(() => {
     if (!pausedGame) {
       holes.forEach((hole, index) => {
@@ -83,6 +102,7 @@ function timerStart() {
 }
 
 function initialize() {
+  const cells = document.querySelectorAll('.cell');
   const timer = document.querySelector('#timer') as HTMLSpanElement;
   const stopButton = document.querySelector('#end_game') as HTMLButtonElement;
   const playButton = document.querySelector('#play_game') as HTMLButtonElement;
@@ -101,7 +121,8 @@ function initialize() {
   playButton.onclick = () => {
     timerStart();
     switchDisplay('playing');
-    generateRandomMoles();
+    generateRandomMoles(cells);
+    catchMole(cells);
     resumeButton.style.display = 'none';
     pauseButton.style.display = 'block';
   };
