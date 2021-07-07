@@ -105,7 +105,7 @@ function generateRandomMoles(cells) {
 
 function timerStart() {
   const timer = document.querySelector('#timer') as HTMLSpanElement;
-  time = 10;
+  time = 60;
   timerId = setInterval(() => {
     if (!pausedGame) {
       time = (time * 10 - 1) / 10;
