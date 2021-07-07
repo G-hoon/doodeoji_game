@@ -2,10 +2,10 @@
 it is the web game which catch mole by hammer and it is developed by javascript
 
 ## Index
-  - [Overview](#overview) 
+  - [Game Overview](#game-overview) 
   - [Getting Started](#getting-started)
   - [Authors](#authors)
-  - [ToDo or Issues](#todo-or-issue)
+  - [ToDo or Issues](#todo-or-issues)
 
 ## About RepositoryTemplate
 This project's purpose is to create a make web game based on vanilla javascript  
@@ -18,15 +18,15 @@ This project's purpose is to create a make web game based on vanilla javascript
 
 ## Getting Started
 
-### Installing
-1. git clone https://github.com/G-hoon/doodeoji_game.git 
-2. npm install
+  ### Installing
+  1. git clone https://github.com/G-hoon/doodeoji_game.git 
+  2. npm install
 
-### build
-1. npm run build
+  ### build
+  - npm run build
 
-### Run Server
-4. npm run dev
+  ### Run Server
+  - npm run dev
 
 ## Authors
   - Hi, This is jihoon bae. and it was my first game project based on javascript. 
