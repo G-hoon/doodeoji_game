@@ -15,6 +15,7 @@ This project's purpose is to create a web game based on vanilla javascript
 - Catch mile by mouse clicking
 - You can get 1 point each time you catch a mole.
 - Total time is 60 sec
+- Play: https://g-hoon.github.io/doodeoji_game/
 
 ## Getting Started
 
