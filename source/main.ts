@@ -82,7 +82,7 @@ const validateMoleCount = (form): boolean => {
   return valid;
 };
 
-module.exports = {
+export {
   formData,
   validateMoleCount,
 };

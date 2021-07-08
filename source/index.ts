@@ -1,11 +1,10 @@
-require('./style.css');
-
-const { formData, validateMoleCount } = require('./main');
-const { buildTable } = require('./play');
-const { initialRoutes, historyRouterPush } = require('./router');
+import { formData, validateMoleCount } from './main';
+import buildTable from './play';
+import { initialRoutes, historyRouterPush } from './router';
+import './style.css';
 
 // app division
-const contentDiv = document.querySelector('#root');
+const contentDiv = document.querySelector('#root') as HTMLDivElement;
 
 // Browser History
 initialRoutes(contentDiv);
@@ -37,7 +36,3 @@ function routing() {
 window.onload = () => {
   routing();
 };
-
-// For global scope issue
-// https://stackoverflow.com/questions/40900791/cannot-redeclare-block-scoped-variable-in-unrelated-files
-export {};

@@ -26,7 +26,7 @@ const historyRouterPush = (element: HTMLElement, pathName: string) => {
   renderHTML(element, routes[pathName]);
 };
 
-module.exports = {
+export {
   initialRoutes,
   historyRouterPush,
 };

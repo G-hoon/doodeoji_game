@@ -202,6 +202,4 @@ function buildTable(data: any) {
   moles = data.mole;
 }
 
-module.exports = {
-  buildTable,
-};
+export default buildTable;
